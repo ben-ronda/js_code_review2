@@ -4,7 +4,7 @@ import { Food } from './food.model';
 @Component({
     selector: 'food-display',
     inputs: ['food'],
-  template: `
+    template: `
     <h3>{{ food.name }}</h3>
   `
 })

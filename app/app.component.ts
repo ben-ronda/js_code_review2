@@ -10,11 +10,11 @@ import { Food } from './food.model';
     <h1>Food/Calorie Checker</h1>
 
     <div>
-    <food-list>
-      [foodList]="foods"
-      (onFoodSelect)="foodWasSelected($event)">
-    </food-list>
-  </div>
+      <food-list>
+        [foodList]="foods"
+        (onFoodSelect)="foodWasSelected($event)">
+      </food-list>
+    </div>
   `
 })
 
