@@ -1,14 +1,19 @@
 import { Component, EventEmitter } from 'angular2/core';
 import { FoodComponent } from './food.component';
+import { NewFoodComponent } from './food-new.component';
+import { FoodEditComponent } from './food-edit.component';
 import { Food } from './food.model';
 
 @Component({
   selector: 'food-list',
   inputs: ['foodList'],
   outputs: ['onFoodSelect'],
-  directives: [FoodComponent],
+  directives: [FoodComponent, NewFoodComponent, FoodEditComponent],
   template: `
   <div class="display-container">
+    <new-food
+    (onSubmitNewFood)="createFood($event)">
+    </new-food>
     <food-display *ngFor="#currentFood of foodList"
       (click)="foodClicked(currentFood)"
       [class.selected]="currentFood === selectedFood"
@@ -16,9 +21,6 @@ import { Food } from './food.model';
     </food-display>
     <edit-food *ngIf="selectedFood" [food]="selectedFood">
     </edit-food>
-    <new-food
-      (onSubmitNewFood)="createFood($event)">
-    </new-food>
   </div>
   `
 })
