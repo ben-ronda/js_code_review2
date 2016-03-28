@@ -14,6 +14,11 @@ import { Food } from './food.model';
       [class.selected]="currentFood === selectedFood"
       [food]="currentFood">
     </food-display>
+    <edit-food *ngIf="selectedFood" [food]="selectedFood">
+    </edit-food>
+    <new-food
+      (onSubmitNewFood)="createFood($event)">
+    </new-food>
   </div>
   `
 })
@@ -29,4 +34,8 @@ export class FoodListComponent {
     this.selectedFood = clickedFood;
     this.onFoodSelect.emit(clickedFood);
   }
+  createFood(foodArray: any): void {
+    this.foodList.push(new Food(foodArray[0], foodArray[1], foodArray[2], this.foodList.length)
+  );
+}
 }
