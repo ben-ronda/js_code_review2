@@ -4,7 +4,12 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "typings": "typings",
+    "postinstall": "typings install"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +36,6 @@
     "gulp-util": "^3.0.7",
     "lite-server": "^2.1.0",
     "typescript": "^1.8.2",
-    "typings": "^0.6.8"
+    "typings": "^0.6.10"
   }
 }
