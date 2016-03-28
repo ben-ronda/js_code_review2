@@ -10,20 +10,23 @@ import {Food} from './food.model';
 
   <input placeholder="Name" #newName>
   <input placeholder="Details" #newDetails>
-  <input placeholder="Calories" #newCalories>
-  <button class="add-food" (click)="addFood(newName, newDescription, newCalories)">Add</button>
+  <input placeholder="Calories" type="number" #newCalories>
+  <button (click)="addFood(newName, newDescription, newCalories)">Add</button>
   </div>
   `
 })
 
 export class NewFoodComponent {
-  public onSubmitNewFood: EventEmitter<any>;
+  public onSubmitNewFood: EventEmitter<Food>;
   constructor(){
     this.onSubmitNewFood = new EventEmitter();
   }
-  addFood(userName: HTMLInputElement, userDetails: HTMLInputElement, userCalories: HTMLInputElement){
-    var foodArray = [userName.value, userDetails.value, userCalories.value]
-    this.onSubmitNewFood.emit(foodArray);
+  addFood(userName: HTMLInputElement, userDetails: HTMLInputElement, userCalories: HTMLInputElement) {
+    var name = userName.value;
+    var details = userDetails.value;
+    var calories = parseInt(userCalories.value);
+    var newFood = new Food(name, details, calories);
+    this.onSubmitNewFood.emit(newFood);
     userName.value = "";
     userDetails.value = "";
     userCalories.value = "";

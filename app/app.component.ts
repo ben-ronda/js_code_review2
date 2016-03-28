@@ -22,17 +22,12 @@ export class AppComponent {
   public foods: Food[];
   constructor(){
     this.foods = [
-      new Food("Pringles", "Ate the whole dang can.", 900, 0),
-      new Food("Jelly Beans", "A couple wont hurt right?", 50, 1),
-      new Food("CheezIts", "I love them soooooo much.", 5000, 2)
+      new Food("Pringles", "Ate the whole dang can.", 900),
+      new Food("Jelly Beans", "A couple wont hurt right?", 50),
+      new Food("CheezIts", "I love them soooooo much.", 5000)
     ];
   }
   foodWasSelected(clickedFood: Food): void {
     console.log("parent", clickedFood.details, clickedFood.calories);
   }
 }
-
-
-new Food("Pringles", "Ate the whole dang can.", 900, 0),
-new Food("Jelly Beans", "A couple wont hurt right?", 50, 1),
-new Food("CheezIts", "I love them soooooo much.", 5000, 2)

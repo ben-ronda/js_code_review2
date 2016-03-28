@@ -36,8 +36,7 @@ export class FoodListComponent {
     this.selectedFood = clickedFood;
     this.onFoodSelect.emit(clickedFood);
   }
-  createFood(foodArray: any): void {
-    this.foodList.push(new Food(foodArray[0], foodArray[1], foodArray[2], this.foodList.length)
-  );
-}
+  createFood(newFood): void {
+    this.foodList.push(newFood);
+  }
 }
