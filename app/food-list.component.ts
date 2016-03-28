@@ -10,16 +10,20 @@ import { Food } from './food.model';
   outputs: ['onFoodSelect'],
   directives: [FoodComponent, NewFoodComponent, FoodEditComponent],
   template: `
-  <div class="display-container">
+  <div>
     <new-food
     (onSubmitNewFood)="createFood($event)">
     </new-food>
+
     <food-display *ngFor="#currentFood of foodList"
       (click)="foodClicked(currentFood)"
       [class.selected]="currentFood === selectedFood"
       [food]="currentFood">
     </food-display>
-    <edit-food *ngIf="selectedFood" [food]="selectedFood">
+
+    <edit-food
+      *ngIf="selectedFood"
+      [food]="selectedFood">
     </edit-food>
   </div>
   `
